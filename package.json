@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "dependencies": {
+    "electron": "^29.1.5",
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  },
+  "main": "main.js",
+  "name": "electronchat",
+  "scripts": {
+    "start": "electron ."
+  }
+}

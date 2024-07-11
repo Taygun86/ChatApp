@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <!-- CSS dosyalarını buraya ekleyebilirsiniz -->
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js" integrity="sha512-luMnTJZ7oEchNDZAtQhgjomP1eZefnl82ruTH/3Oj/Yu5qYtwL7+dVRccACS/Snp1lFXq188XFipHKYE75IaQQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <header class="titlebar">Chat App</header>
+    <!-- Arayüzünüzün HTML kodunu buraya ekleyin -->
+    <div class="container">
+        <!-- Sol taraftaki kişi ve grup listesi -->
+        <div class="sidebar">
+           <div class="menü-container">               
+                <div class="logo">
+                    <h2 style="color: white;">Chat</h2>
+                </div>
+                <div class="buton">
+                    <button id="menuButton" class="menü-icon">Menü</button>
+                    <ul id="menu" class="hidden">
+                    <li><a href="#" onclick="settings()">Ayarlar</a></li>
+                    <li><a href="#"  onclick="kisiekle()">Kişi Ekle</a></li>
+                    </ul>
+                    <script>
+                        // JavaScript kodlarını buraya ekleyin
+                        // Düğmeye tıklandığında menünün görünürlüğünü değiştir
+                        document.getElementById('menuButton').addEventListener('click', function() {
+                            var menu = document.getElementById('menu');
+                            menu.classList.toggle('hidden');
+                        });       
+                    </script>
+                </div>
+         
+           </div>
+           
+
+            <hr>
+
+
+
+           
+            <div class="user">
+                <h2>Kişiler ve Gruplar</h2>
+              
+            </div>
+            <!-- Kişi ve grup listesini buraya ekle -->
+            <div id="gonder">
+                <p id="receiver"></p>
+            </div>
+           
+           
+            <div id="hesap">
+                <p id="kadi"></p>
+            </div>
+        </div>
+        
+
+
+        
+
+        <!-- Sağ taraftaki sohbet penceresi -->
+
+        <div class="chat">
+            <div class="banner">
+                <h2 style="border-bottom: 1px; color: white; border-bottom: 1px solid white;">Sohbet</h2>
+            </div>
+            <div id="messages">
+                
+                <input type="text" id="messageInput" placeholder="  Mesajınızı Giriniz">
+                <button onclick="sendMessage()" id="sendButton">Gönder</button>
+
+            </div>
+            <div id="messageContainer"></div>
+            <!-- Sohbet penceresini buraya ekle -->
+        </div>
+
+
+
+
+    </div>
+    <!-- Kullanıcı adı belirleme formu -->
+    <div id="username-form">
+       
+        <h2 style="color: white;">Kullanıcı Adı Belirle</h2>
+        <input type="text" id="usernameInput" placeholder="Kullanıcı Adı">
+        <button onclick="setUsername()" id="setUsernameButton">Giriş Yap</button>
+        
+    </div>
+
+    <div id="kisi">
+        <h2 style="color: white;">Arkadaş Ekleyin</h2> <input type="text" id="person"><br>
+        <button onclick="kisi()">Ekle</button>
+        <button onclick="back()">Geri Dön</button>
+        <script>
+            function kisi(){
+                document.getElementsByClassName("container")[0].style.display = "flex";
+        document.getElementById("kisi").style.display = "none";
+        var person = document.getElementById("person").value;
+        
+        var user = document.getElementsByClassName("user")[0];
+        user.innerHTML += "<p onclick='selectRecipient(this)'>" + person + "</p>"; //
+              
+            }
+            function back(){
+                document.getElementsByClassName("container")[0].style.display = "flex";
+        document.getElementById("kisi").style.display = "none";
+            }
+
+            
+        </script>
+    </div>
+
+    <div id="settings">
+        <h2>Ayarlar</h2>
+        <label for="colorPicker">Arka Plan Rengini Seç:</label>
+        <input type="color" id="colorPicker">
+        <button onclick="applySettings()">Uygula</button>
+        <button onclick="geri()">Geri Dön</button>
+        <script>
+            function applySettings(){
+               
+                document.getElementsByClassName("container")[0].style.display = "flex";
+                document.getElementById("settings").style.display = "none";
+                var selectedColor = document.getElementById("colorPicker").value;
+                document.getElementsByClassName("chat")[0].style.backgroundColor = selectedColor;
+                document.body.style.backgroundColor = selectedColor;
+            }
+
+            function geri(){
+                document.getElementsByClassName("container")[0].style.display = "flex";
+                document.getElementById("settings").style.display = "none";
+            }
+
+        </script>
+    </div>
+    
+    <script src="main.js"></script>
+    <script src="renderer.js"></script>
+    
+    <!-- JavaScript dosyalarını buraya ekleyebilirsiniz -->
+</body>
+</html>

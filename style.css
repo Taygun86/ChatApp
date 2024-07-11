@@ -1,0 +1,353 @@
+/* Temel stil ayarları */
+body {
+    font-family:Arial, Helvetica, sans-serif;
+     margin: 0;
+     padding: 0;
+     background-color: #2a2a2f;
+     overflow: hidden;
+ }
+ .titlebar {
+    background-color: #2a2a2f;
+    height: 31px;
+    -webkit-app-region: drag;    /* Allow user to drag the window using this titlebar */
+    -webkit-user-select: none;   /* Prevent user from selecting things */
+    user-select: none;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
+ .container {
+     display: flex;
+     height: 100vh;
+     display: none;;
+ }
+ 
+ 
+ .sidebar {
+ 
+     flex: 1;
+     background-color: #2a2a2f;
+     padding: 20px;
+   
+ }
+ .sidebar h2 {
+     margin-top: 0px;
+ }
+ 
+ 
+ 
+ /*burası sohbet penceresi*/
+ .chat {
+     flex: 3;
+     background-color: #36363d;
+     padding: 20px;
+     position: relative;
+    
+ }
+ .chat p{
+     color: white;
+     overflow-wrap: break-word;
+     white-space: pre-wrap;
+ }
+ .chat h2{
+     text-align: center;
+ }
+ #messageContainer {
+    overflow-wrap: break-word;
+    overflow: auto;
+    max-height: 100vmin; 
+ }
+ 
+ #messageInput {
+     /* Diğer stillendirmeler */
+     position: absolute; /* Mutlak pozisyonlandırma */
+     bottom: 40px; /* Alt kenara göre */
+     width: calc(100% - 150px); /* Genişliği ayarla (Gönderme düğmesi hariç) */
+     height: 30px;
+     border-radius: 10px;
+ }
+ #sendButton {
+     /* Diğer stillendirmeler */
+     position: absolute; /* Mutlak pozisyonlandırma */
+     bottom: 40px; /* Alt kenara göre */
+     right: 10px; /* Sağ kenara göre */
+      /* Kenarlardan biraz içeri */
+     width: 80px;
+     height: 30px;
+     border-radius: 10px;
+     background-color: #4caf50  ;
+     transition: background-color 0.3s;
+ } 
+ #sendButton:hover {
+     background-color: #57da5e; /* Gönderme düğmesinin arkaplan rengi (üzerine gelindiğinde) */
+ }
+ 
+ 
+ 
+ 
+ 
+ /*burası ayarlar divi*/
+ #settings {
+     display: none;
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /*kişi divleri*/
+ .user {  
+     padding: 10px;
+     flex-direction: column; 
+     text-align: center;
+     max-height: 450px;
+     overflow: auto;
+ }
+ .user h2 {
+     color: white;
+ }
+ .user img {
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     margin-right: 10px;  
+ }
+ .user p {
+     display: block;
+     margin-bottom: 5px; /* İhtiyacınıza göre ayarlayabilirsiniz */
+     padding: 8px;
+     border-radius: 5px;
+     background-color: #f0f0f0; /* Arka plan rengi */
+     cursor: pointer; /* İmleç değişimi */
+ }
+ .user p:hover {
+     background-color: #e0e0e0; 
+ }
+ 
+ 
+ 
+ 
+ 
+ .username {
+     font-weight: bold;
+     cursor: pointer;
+ }
+ .hidden {
+     display: none;
+ }
+ 
+ #kisi {
+     display: none;
+ }
+ 
+ 
+ 
+ 
+ /*burası login sayfası*/
+ 
+ #username-form {
+     position: fixed;
+     left: 50%;
+     bottom: 50%;
+     transform: translate(-50%, 50%);
+     width: 600px;
+     height: 550px;
+     background-color: #36363d;
+     border: 1px solid #ccc;
+     border-radius: 10px;
+     padding: 20px;
+     box-sizing: border-box;
+ }
+ #usernameInput {
+     width: 100%;
+     padding: 10px;
+     margin-bottom: 20px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     box-sizing: border-box;
+ }
+ #setUsernameButton {
+     width: 100%;
+     padding: 10px;
+     background-color: #4caf50;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     transition: background-color 0.3s; 
+ }
+ #setUsernameButton:hover {
+     background-color: #57da5e;
+ }
+ 
+ 
+ 
+ /*burası arkadaş ekleme*/
+ #kisi {
+     position: fixed;
+     left: 50%;
+     bottom: 50%;
+     transform: translate(-50%, 50%);
+     width: 600px;
+     height: 550px;
+     background-color: #36363d;
+     border: 1px solid #ccc;
+     border-radius: 10px;
+     padding: 20px;
+     box-sizing: border-box;
+ }
+ #kisi button {
+     width: 100%;
+     padding: 10px;
+     background-color: #4caf50;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     margin-bottom: 5px;
+     transition: background-color 0.3s; 
+ }
+ #person {
+     width: 100%;
+     padding: 10px;
+     margin-bottom: 20px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     box-sizing: border-box;
+ }
+ #kisi button:hover {
+     background-color: #57da5e;
+ }
+ 
+ 
+ 
+ 
+ /* menü ayarları */
+ .menü-container{
+     display: flex;
+     justify-content: space-between;
+ }
+ #menuButton {
+     padding: 8px 15px;
+     background-color: #4CAF50;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer; 
+     transition: background-color 0.3s;
+ }
+ #menu {
+     list-style-type: none;
+     padding: 0;
+ }
+ #menu li {
+     margin-bottom: 5px;
+ }
+ #menu li a {
+     text-decoration: none;
+     color: white;
+     padding: 2px 3px;
+     border-radius: 5px;
+     background-color: #4CAF50;
+     display: block;
+     transition: background-color 0.3s;
+ }
+ #menu li a:hover {
+     background-color: #57da5e;
+ }
+ #menuButton:hover {
+     background-color: #57da5e;
+ }
+ 
+ 
+ /*diğer ayarlar*/
+ .buton {
+     text-align: center;
+ }
+ #gonder {
+     position: absolute;
+     bottom: 60px;
+     flex: 2;
+ }
+ #gonder p {
+     color: white;
+ }
+ #hesap {
+     position: absolute;
+     bottom: 0px;
+     width: fit-content;
+     border-top: 2px solid white;
+     flex: 1;
+  }
+  #hesap p {
+     color: white;
+  }
+ 
+  /* Dikey scrollbar */
+ ::-webkit-scrollbar {
+     width: 7px; /* Scrollbar genişliği */
+   }
+   
+   ::-webkit-scrollbar-track {
+     background: #f1f1f1; /* Scrollbar arkaplan rengi */
+   }
+   
+   ::-webkit-scrollbar-thumb {
+     background: #888; /* Scrollbar rengi */
+   }
+   
+   ::-webkit-scrollbar-thumb:hover {
+     background: #555; /* Fare üzerine gelindiğinde scrollbar rengi */
+   }
+ 
+ 
+   /*settings ayarları*/
+   #settings {
+     position: fixed; /* Sayfa üzerinde sabit konumda */
+     top: 50%; /* Sayfa yüksekliğinin yarısı kadar yukarıda */
+     left: 50%; /* Sayfa genişliğinin yarısı kadar sağda */
+     transform: translate(-50%, -50%); /* Ortala */
+     width: 600px; /* Genişlik */
+     height: 550px; /* Yükseklik */
+     padding: 20px; /* İç boşluk */
+     background-color: #36363d; /* Arka plan rengi */
+     border-radius: 10px; /* Kenar yuvarlaklığı */
+     border: 1px solid #ccc;
+ }
+ 
+ #settings h2 {
+     margin-bottom: 20px; /* Başlık ile diğer içerikler arasında boşluk */
+     color: white; /* Başlık rengi */
+ }
+ 
+ #settings label {
+     display: block; /* Satır satır düzenle */
+     margin-bottom: 10px; /* Etiketler arasında boşluk */
+     color: white; /* Etiket rengi */
+ }
+ 
+ #settings input[type="color"] {
+     width: 100%; /* Genişlik */
+     height: 100px; /* Yükseklik */
+     border-radius: 5px; /* Kenar yuvarlaklığı */
+     border: 1px solid #ccc; /* Kenarlık */
+ }
+ 
+ #settings button {
+     width: 100px; /* Genişlik */
+     height: 40px; /* Yükseklik */
+     margin-top: 20px; /* Buton ile diğer içerikler arasında boşluk */
+     background-color: #45a050; /* Arka plan rengi */
+     color: white; /* Metin rengi */
+     border: none; /* Kenarlık yok */
+     border-radius: 5px; /* Kenar yuvarlaklığı */
+     cursor: pointer; /* İmleç tipi */
+     transition: background-color 0.3s; /* Yumuşak geçiş efekti */
+ }
+ 
+ #settings button:hover {
+     background-color: #57da5e; /* Üzerine gelindiğinde arka plan rengi */
+ }
+ 
